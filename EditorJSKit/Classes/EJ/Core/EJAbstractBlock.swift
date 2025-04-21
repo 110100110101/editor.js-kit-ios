@@ -76,4 +76,8 @@ open class EJAbstractBlock: EJAbstractBlockProtocol {
                 debugDescription: "Unable to parse block - no native or custom type found"))
     }
     
+    public init(type: EJAbstractBlockType, data: EJAbstractBlockContent) {
+        self.type = type
+        self.data = data
+    }
 }
