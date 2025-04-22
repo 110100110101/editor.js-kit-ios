@@ -17,6 +17,10 @@ public class HeaderBlockContent: EJAbstractBlockContent {
         items = [try HeaderBlockContentItem(from: decoder) ]
     }
     
+    public init(items: [HeaderBlockContentItem]) {
+        self.items = items
+    }
+    
     public func getItem(atIndex index: Int) -> EJAbstractBlockContentItem? {
         guard index == 0 else { return nil }
         return items.first
