@@ -35,8 +35,15 @@ public class HeaderBlockContentItem: EJAbstractBlockContentItem {
     public var attributedString: NSAttributedString?
     
     public init(text: String, level: Int) {
+        
         self.text = text
         self.level = level
+        
+        if let style = EJKit.shared.style.getStyle(forBlockType: EJNativeBlockType.header) as? EJHeaderBlockStyle {
+            self.attributedString = text.convertHTML(font: style.font(forHeaderLevel: level), forceFontFace: true)
+        } else {
+            self.attributedString = nil
+        }
     }
     
     required public init(from decoder: Decoder) throws {
