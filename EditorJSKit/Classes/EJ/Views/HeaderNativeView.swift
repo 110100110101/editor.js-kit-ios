@@ -11,7 +11,13 @@ import UIKit
 ///
 public class HeaderNativeView: UIView, EJBlockStyleApplicable {
     
-    public let label = UILabel()
+    public lazy var label: UILabel = {
+       
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
